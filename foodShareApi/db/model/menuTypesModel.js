@@ -1,12 +1,13 @@
 const mongoose = require("mongoose")
 
-let kindScheme = mongoose.Schema({
-     __v :    {type:Number,select:false},
-     kindName:{type:String,required:true},
-
+let menutypesScheme = mongoose.Schema({
+     // __v :    {type:Number,select:false},
+     menutypesName:{type:String,required:true},
+     // 菜谱属于哪一大类
+     classes:{type:String,require:true}
 })
 
-let kindModel = mongoose.model("menutypes",kindScheme)
-module.exports = kindModel
+let menuTypesModel = mongoose.model("menutypes",menutypesScheme)
+module.exports = menuTypesModel
 
 

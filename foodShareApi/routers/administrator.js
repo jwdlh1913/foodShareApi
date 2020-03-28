@@ -6,7 +6,7 @@ const {find,
   login,
   create,
   update,
-  delete:del} = require('../controllers/adminCtr')
+  delete:del} = require('../controllers/administratorCtr')
 router.get('/',authToken,authPermission,find)
 router.post('/',authToken,authPermission,create)
 router.del('/:id',authToken,authPermission,del)

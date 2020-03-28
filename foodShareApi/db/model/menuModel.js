@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-let goodsScheme = mongoose.Schema({
+let menuScheme = mongoose.Schema({
 		__v :    {type:Number,select:false},
 		name:{type:String,required:true},
 		desc:{type:String,required:false},
@@ -26,7 +26,7 @@ let goodsScheme = mongoose.Schema({
 	}
 )
 
-let goodsModel = mongoose.model("menu",goodsScheme)
-module.exports = goodsModel
+let menuModel = mongoose.model("menu",menuScheme)
+module.exports = menuModel
 
 

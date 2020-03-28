@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-let adminScheme = mongoose.Schema({
+let administratorScheme = mongoose.Schema({
      __v :    {type:Number,select:false},
      userName:{type:String,required:true},
      passWord:{type:String,required:true,select:false},
@@ -8,7 +8,7 @@ let adminScheme = mongoose.Schema({
 
 })
 
-let adminModel = mongoose.model("administration",adminScheme)
-module.exports = adminModel
+let administratorModel = mongoose.model("administrator",administratorScheme)
+module.exports = administratorModel
 
 

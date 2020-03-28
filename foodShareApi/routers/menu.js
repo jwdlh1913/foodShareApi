@@ -7,7 +7,7 @@ const {find,
   create,
   update,
   putaway,
-  delete:del} = require('../controllers/goodsCtr.js')
+  delete:del} = require('../controllers/menuCtr')
 router.get('/',authToken,authPermission,find)
 router.get('/:id',authToken,authPermission,findOneById)
 router.post('/',authToken,authPermission,create)
