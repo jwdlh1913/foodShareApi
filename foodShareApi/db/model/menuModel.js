@@ -7,7 +7,7 @@ let menuScheme = mongoose.Schema({
 		tags:{type:String,required:false},
 		imtro:{type:String,required:true},
 		// kind:{type:String,required:true},
-		kind:{type:mongoose.Schema.Types.ObjectId,ref:"menutypesName"},
+		kind:{type:mongoose.Schema.Types.ObjectId,ref:"menutypes"},
 		ingredients:{type:String,required:false},
 		burden:{type:String,required:true},
 		albums:{type:String,required:true},
