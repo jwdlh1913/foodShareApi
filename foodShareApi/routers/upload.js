@@ -1,7 +1,7 @@
 const Router = require("koa-router");
-const authToken = require("../middlewera/autoToken")
+// const authToken = require("../middlewera/autoToken")
 const router = new Router({prefix:'/upload'})
 
 const {uploadImg} = require('../controllers/uploadCtr')
-router.post('/',authToken,uploadImg)
+router.post('/',uploadImg)
 module.exports = router
