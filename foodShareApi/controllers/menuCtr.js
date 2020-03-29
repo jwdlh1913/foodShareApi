@@ -3,8 +3,8 @@ class MenuCtr{
   // 查询商品列表
   async find(ctx){
    let {page = 1 ,pageSize} = ctx.query
-   let count = await menu.count()   
-   let list = await menu.find().limit(Number(pageSize)).skip((page-1)*pageSize) //.populate('kind',"kindName -_id")
+   let count = await menu.countDocuments()   
+   let list = await menu.find().limit(Number(pageSize)).skip((page-1)*pageSize).populate('kind',"menutypesName -_id")
    ctx.body={code:0,list,msg:'查询ok',count}
   }
   // 查找某一个
