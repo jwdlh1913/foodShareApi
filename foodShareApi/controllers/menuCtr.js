@@ -10,7 +10,7 @@ class MenuCtr{
   // 查找某一个
   async findOneById(ctx){
     let id= ctx.params.id
-    let result = await menu.find({_id:id}).populate('kind',"menutypesName -_id")
+    let result = await menu.find({_id:id}).populate('kind',"menutypesName")
     if(!result){ ctx.throw(404,'商品获取失败')}
     ctx.body={code:0,result,msg:'商品获取成功'}
   }
