@@ -2,30 +2,29 @@ const menu = require("../db/model/menuModel")
 class MenuCtr{
   // 查询商品列表
   async find(ctx){
-   let {page = 1 ,pageSize = 2} = ctx.query
-   let count = await menu.count()
-   let list = await menu.find().limit(Number(pageSize)).skip((page-1)*pageSize).populate('kind',"kindName -_id")
+   let {page = 1 ,pageSize} = ctx.query
+   let count = await menu.countDocuments()   
+   let list = await menu.find().limit(Number(pageSize)).skip((page-1)*pageSize).populate('kind',"menutypesName -_id")
    ctx.body={code:0,list,msg:'查询ok',count}
   }
   // 查找某一个
   async findOneById(ctx){
     let id= ctx.params.id
-    let result = await menu.find({_id:id})
+    let result = await menu.find({_id:id}).populate('kind',"menutypesName -_id")
     if(!result){ ctx.throw(404,'商品获取失败')}
-    ctx.body={code:0,msg:'商品获取成功'}
+    ctx.body={code:0,result,msg:'商品获取成功'}
   }
   // 添加商品
   async create(ctx){
-    let {name,desc,path,link,stock,putaway,price,unit,kind} = ctx.request.body 
-    console.log(kind)
-    let result = await menu.insertMany({name,desc,path,link,stock,putaway,price,unit,kind})
+    let {userId,title,tags,imtro,kind,ingredients,burden,albums,steps} = ctx.request.body 
+    let result = await menu.insertMany({userId,title,tags,imtro,kind,ingredients,burden,albums,steps})
     if(!result){ ctx.throw(404,'商品添加失败')}
     ctx.body ={code:0,msg:'商品添加成功'}
   }
   async update(ctx){
     let id= ctx.params.id
-    let {name,desc,path,link,stock,putaway,price,unit} = ctx.request.body 
-    let result = await menu.findByIdAndUpdate(id,{name,desc,path,link,stock,putaway,price,unit} )
+    let {userId,title,tags,imtro,kind,ingredients,burden,albums,steps} = ctx.request.body 
+    let result = await menu.findByIdAndUpdate(id,{userId,title,tags,imtro,kind,ingredients,burden,albums,steps} )
     if(!result){ ctx.throw(404,'商品修改失败')}
     ctx.body={code:0,msg:'商品修改成功'}
   }
