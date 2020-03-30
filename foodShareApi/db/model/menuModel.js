@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 let menuScheme = mongoose.Schema({
 		__v :    {type:Number,select:false},
-		userId:{type:Number,required:true},
+		userId:{type:Number,required:false},
 		title:{type:String,required:true},
 		tags:{type:String,required:false},
 		imtro:{type:String,required:true},
