@@ -10,7 +10,7 @@ db.once('open', function() {
   console.log('数据库连接成功')
 })
 
-/* let adminsSchema = mongoose.Schema({
+let adminsSchema = mongoose.Schema({
   userName:{type:String},
   passWord:{type:String},
 })
@@ -22,4 +22,4 @@ model.insertMany({userName:'刁建科',passWord:"diaojianke"})
  })
  .catch((err)=>{
   console.log(err)
-}) */
+})
