@@ -8,7 +8,7 @@ let administratorScheme = mongoose.Schema({
 
 })
 
-let administratorModel = mongoose.model("administrator",administratorScheme)
+let administratorModel = mongoose.model("admins",administratorScheme)
 module.exports = administratorModel
 
 
