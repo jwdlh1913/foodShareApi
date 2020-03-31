@@ -3,8 +3,10 @@ const {secret} = require("../config/config")
 const jsonWebToken = require("jsonwebtoken")
 class AdministratorCtr{
   async find(ctx){
-   let administratorList = await administrator.find()
-   ctx.body={code:0,administratorList,msg:'查询ok'}
+    let {page = 1 ,pageSize = 5} = ctx.query
+    let count = await administrator.countDocuments()
+    let administratorList = await administrator.find().limit(Number(pageSize)).skip((page-1)*pageSize)
+   ctx.body={code:0,administratorList,msg:'查询ok',count}
   }
   findById(ctx){
     ctx.body ="获取某一个管理"
