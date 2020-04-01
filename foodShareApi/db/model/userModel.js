@@ -8,5 +8,5 @@ let userScheme = mongoose.Schema({
 
 })
 
-let userModel = mongoose.model("user", userScheme)
+let userModel = mongoose.model("users", userScheme)
 module.exports = userModel
